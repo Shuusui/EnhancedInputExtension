@@ -2,11 +2,25 @@
 #include "CoreMinimal.h"
 #include "PropertyEditorDelegates.h"
 #include "Modules/ModuleManager.h"
+#include "AssetTypeCategories.h"
+
+class IAssetTypeActions;
 
 class FInputLayoutSystemEditorModule : public IModuleInterface
 {
+public:
 	virtual void StartupModule() override;
 	virtual void ShutdownModule() override;
+
+	static EAssetTypeCategories::Type GetInputAssetCategories() {return InputAssetsCategory; }
+
+private:
+
+	void RegisterAssetTypeActions(class IAssetTools& AssetTools, TSharedRef<IAssetTypeActions> Action);
+
+	static EAssetTypeCategories::Type InputAssetsCategory;
+
+	TArray<TSharedPtr<IAssetTypeActions>> CreatedAssetTypeActions;
 
 	template <typename T>
 	void RegisterCustomClassLayout(FOnGetDetailCustomizationInstance DetailLayoutDelegate)
