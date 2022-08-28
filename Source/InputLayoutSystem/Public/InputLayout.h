@@ -1,3 +1,4 @@
+//Copyright JosaiProduction. All rights Reserved.
 #pragma once
 #include "CoreMinimal.h"
 #include "Engine/DataAsset.h"
@@ -8,7 +9,7 @@ class UInputAction;
 
 
 USTRUCT(BlueprintType)
-struct FInputLayoutMappings
+struct INPUTLAYOUTSYSTEM_API FInputLayoutMappings
 {
 	GENERATED_BODY()
 
@@ -31,7 +32,7 @@ class INPUTLAYOUTSYSTEM_API UInputLayout : public UDataAsset
 public:
 	UInputLayout();
 
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Mappings")
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Config, Category="Mappings")
 	TArray<FInputLayoutMappings> InputMappingContexts;
 
 };

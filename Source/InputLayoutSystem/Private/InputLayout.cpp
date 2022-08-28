@@ -1,3 +1,4 @@
+//Copyright JosaiProduction. All rights Reserved.
 #include "InputLayout.h"
 #include "InputMappingContext.h"
 
@@ -17,7 +18,7 @@ FInputLayoutMappings::FInputLayoutMappings(UInputMappingContext* InputMappingCon
 
 UInputLayout::UInputLayout()
 {
-	for (UInputMappingContext* InputMappingContext : TObjectRange<UInputMappingContext>())
+	for (UInputMappingContext* InputMappingContext : TObjectRange<UInputMappingContext>(EObjectFlags::RF_NoFlags))
 	{
 		InputMappingContexts.Add(FInputLayoutMappings(InputMappingContext));
 	}

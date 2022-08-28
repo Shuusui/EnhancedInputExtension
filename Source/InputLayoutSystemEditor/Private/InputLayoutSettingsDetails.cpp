@@ -1,3 +1,4 @@
+//Copyright JosaiProduction. All rights Reserved.
 #include "InputLayoutSettingsDetails.h"
 #include "DetailLayoutBuilder.h"
 

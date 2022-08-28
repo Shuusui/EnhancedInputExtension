@@ -1,3 +1,4 @@
+//Copyright JosaiProduction. All rights Reserved.
 #include "InputLayout_Factory.h"
 #include "InputLayout.h"
 

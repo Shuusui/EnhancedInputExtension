@@ -1,3 +1,4 @@
+//Copyright JosaiProduction. All rights Reserved.
 #pragma once
 #include "CoreMinimal.h"
 #include "Engine/DeveloperSettings.h"
@@ -114,7 +115,7 @@
 //};
 
 
-UCLASS(Config=InputLayouts, DefaultConfig)
+UCLASS(Config=Input, DefaultConfig)
 class INPUTLAYOUTSYSTEM_API UInputLayoutSettings : public UDeveloperSettings
 {
 	GENERATED_BODY()

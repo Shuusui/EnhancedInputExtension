@@ -2,9 +2,9 @@
 
 using UnrealBuildTool;
 
-public class InputLayoutSystemEditor : ModuleRules
+public class EnhancedInputExtension : ModuleRules
 {
-    public InputLayoutSystemEditor(ReadOnlyTargetRules Target) : base(Target)
+    public EnhancedInputExtension(ReadOnlyTargetRules Target) : base(Target)
     {
         PCHUsage = ModuleRules.PCHUsageMode.UseExplicitOrSharedPCHs;
 
@@ -26,9 +26,7 @@ public class InputLayoutSystemEditor : ModuleRules
             new string[]
             {
                 "Core",
-                "InputLayoutSystem",
-                "EditorModuleUtilities",
-                "AssetTools"
+                "GameplayTags"
 				// ... add other public dependencies that you statically link with here ...
 			}
             );
@@ -39,9 +37,9 @@ public class InputLayoutSystemEditor : ModuleRules
             {
                 "CoreUObject",
                 "Engine",
-                "PropertyEditor",
-                "UnrealEd",
-                
+                "InputCore",
+                "EnhancedInput",
+                "EditorModuleUtilities"
 				// ... add private dependencies that you statically link with here ...	
 			}
             );

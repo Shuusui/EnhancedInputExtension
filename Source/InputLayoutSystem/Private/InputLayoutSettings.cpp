@@ -1,3 +1,4 @@
+//Copyright JosaiProduction. All rights Reserved.
 #include "InputLayoutSettings.h"
 
 FName UInputLayoutSettings::GetCategoryName() const

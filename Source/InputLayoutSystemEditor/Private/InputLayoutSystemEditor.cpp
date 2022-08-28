@@ -1,41 +1,33 @@
-
+//Copyright JosaiProduction. All rights Reserved.
 #include "InputLayoutSystemEditor.h"
 #include "InputLayoutSettings.h"
 #include "AssetToolsModule.h"
 #include "AssetTypeActions_InputLayout.h"
 #include "IAssetTools.h"
 #include "IAssetTypeActions.h"
+#include "InputLayoutDetails.h"
+#include "InputLayout.h"
 
 #define LOCTEXT_NAMESPACE "InputLayoutSystemEditor"
-
 EAssetTypeCategories::Type FInputLayoutSystemEditorModule::InputAssetsCategory;
 
 void FInputLayoutSystemEditorModule::StartupModule()
 {
+	RegisterCustomClassLayout<UInputLayout>(FOnGetDetailCustomizationInstance::CreateStatic(&FInputLayoutDetails::MakeInstance));
 	IAssetTools& AssetTools = FModuleManager::LoadModuleChecked<FAssetToolsModule>("AssetTools").Get();
 	InputAssetsCategory = AssetTools.RegisterAdvancedAssetCategory(FName(TEXT("Input")), LOCTEXT("InputAssetsCategory", "Input"));
 	{
-		RegisterAssetTypeActions(AssetTools, MakeShareable(new FAssetTypeActions_InputLayout));
+		RegisterAssetTypeActions(MakeShareable(new FAssetTypeActions_InputLayout));
 	}
 }
 
 void FInputLayoutSystemEditorModule::ShutdownModule()
 {
-	if (FAssetToolsModule* AssetToolsModule = FModuleManager::GetModulePtr<FAssetToolsModule>("AssetTools"))
-	{
-		for (TSharedPtr<IAssetTypeActions>& AssetActions : CreatedAssetTypeActions)
-		{
-			AssetToolsModule->Get().UnregisterAssetTypeActions(AssetActions.ToSharedRef());
-		}
-	}
-	CreatedAssetTypeActions.Empty();
+	UnregisterCustomClassLayout<UInputLayout>();
+	UnregisterAssetTypeActions();
 }
 
-void FInputLayoutSystemEditorModule::RegisterAssetTypeActions(IAssetTools& AssetTools, TSharedRef<IAssetTypeActions> Action)
-{
-	AssetTools.RegisterAssetTypeActions(Action);
-	CreatedAssetTypeActions.Add(Action);
-}
+
 
 #undef LOCTEXT_NAMESPACE
 

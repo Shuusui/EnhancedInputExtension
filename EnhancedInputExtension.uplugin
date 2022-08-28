@@ -24,12 +24,26 @@
 			"Name": "InputLayoutSystemEditor",
 			"Type": "Editor",
 			"LoadingPhase": "Default"
+		},
+		{
+			"Name": "EnhancedInputExtension",
+			"Type": "Runtime",
+			"LoadingPhase": "Default"
+		},
+		{
+			"Name": "EnhancedInputExtensionEditor",
+			"Type": "Editor",
+			"LoadingPhase": "Default"
 		}
 	],
 	"Plugins": [
 		{
 			"Name": "EnhancedInput",
-			"Enabled":  true
+			"Enabled": true
+		},
+		{
+			"Name": "EditorModuleUtilities",
+			"Enabled": true
 		}
 	]
 }

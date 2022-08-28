@@ -1,4 +1,4 @@
-
+//Copyright JosaiProduction. All rights Reserved.
 #include "CoreMinimal.h"
 #include "IDetailCustomization.h"
 
